@@ -1,27 +1,22 @@
 """
-Дана дата в формате dd.mm.yyyy, например: 02.11.2013.
-Ваша задача — вывести дату в текстовом виде, 
-    например:   второе ноября 2013 года. 
-                Склонением пренебречь (2000 года, 2010 года)
+    Создайте функцию, принимающую на вход 3 числа и возвращающую наибольшее из них.
 """
-monthes = ("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря")
-days = ("Первое", "Второе", "Третье", "Четвертое", "Пятое", "Шестое", "Седьмое", "Восьмое", "Девятое", "Десятое", "Одинадцатое", 
-    "Двенадцатое", "Тринадцатое", "Четырнадцатое", "Пятнадцатое", "Шестнадцатое", "Семьнадцатое", "Восемьнадцатое", "Девятнадцатое", "Двадцатое")
-decades = ("Двадцать", "Тридцать")
-date_str = "1.11.2013"
 
-date_list = date_str.split(".")
-day_num = int(date_list[0])
-month_num = int(date_list[1])
-year_num = int(date_list[2])
+def max_number(a, b, c):
+    if a > b:
+        if a > c:
+            return a
+        else:
+            return c
+    elif b > c:
+        return b
+    else:
+        return c
 
-if day_num <= 20:
-    day_str = days[day_num - 1]
-elif day_num < 30:
-    day_str = "{} {}".format(decades[0], days[day_num - 21].lower())
-elif day_num == 30:
-    day_str = "Тридатое"
-else:
-    day_str = "{} {}".format(decades[1], days[day_num - 31].lower())
+def get_max(a, b, c): # Правильное решение
+    return max([a, b, c])
 
-print("{} {} {} года".format(day_str, monthes[month_num - 1], year_num))
+print(max_number(1, 2, 3))
+print(max_number(2, 3, 1))
+print(max_number(3, 2, 1))
+print(max_number(3, 1, 2))
