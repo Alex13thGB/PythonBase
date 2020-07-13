@@ -30,5 +30,5 @@ elif age > 30 and (weight < 50 or weight > 120):
 else:
     state = "ни то ни се"
 
-print(name, last_name, ", ", age, " год, вес ", weight, " - ", state, sep="")
+print(name, " ", last_name, ", ", age, " год, вес ", weight, " - ", state, sep="")
 
