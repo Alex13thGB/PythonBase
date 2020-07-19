@@ -6,6 +6,7 @@ import os
 import shutil
 import datetime
 
+
 def create_file(name, text=None):
     with open(name, "w", encoding="utf-8") as f:
         if text:
@@ -19,7 +20,7 @@ def create_folder(name):
         print("Folder already exists")
 
 
-def get_list(is_folder = False):
+def get_list(is_folder=False):
     result = os.listdir()
     if is_folder:
         result = [item for item in result if os.path.isdir(item)]
@@ -31,7 +32,6 @@ def copy_file(name, new_name):
         shutil.copy(name, new_name)
     except FileNotFoundError:
         print(f"File or folder {name} not found")
-
 
 
 def delete_file(name):
@@ -46,7 +46,7 @@ def delete_file(name):
 
 def save_log(message):
     with open("main.log", "a", encoding="utf-8") as f:
-        f.write(f"{datetime.datetime.now()} - {message}")
+        f.write(f"{datetime.datetime.now()} - {message}\n")
 
 
 def change_folder(name):
@@ -54,6 +54,7 @@ def change_folder(name):
         os.chdir(name)
     except FileNotFoundError:
         print("Folder isn't exists")
+
 
 if __name__ == "__main__":
     print(get_list())
